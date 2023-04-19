@@ -22,7 +22,7 @@ client.once(Events.ClientReady, (clientUser) => {
 
 client.login(process.env.BOT_TOKEN)
 
-const BOT_CHANNEL = "1098065307895083058"
+const BOT_CHANNEL = "1098087725443338350"
 const PAST_MESSAGES = 5
 
 client.on(Events.MessageCreate, async (message) => {
@@ -50,13 +50,17 @@ client.on(Events.MessageCreate, async (message) => {
     }
     prompt += `${client.user.username}:`
     console.log("prompt:", prompt)
-
+    const trainresp = {
+      {"prompt": "hola", "completion": "bienvenido al server mas gosu :v"}
+    }
+      const traingpt = await openai.
     const response = await openai.createCompletion({
         prompt,
         model: "text-davinci-003",
         max_tokens: 4096,
         stop: ["\n"]
     })
+  
 
     console.log("response", response.data.choices[0].text)
     await message.channel.send(response.data.choices[0].text)
