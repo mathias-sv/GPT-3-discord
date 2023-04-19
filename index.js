@@ -28,7 +28,9 @@ const PAST_MESSAGES = 5
 client.on(Events.MessageCreate, async (message) => {
     if (message.author.bot) return
     if (message.channel.id !== BOT_CHANNEL) return
-
+    if (message.content.toLowerCase() === "hola") {
+        await message.channel.send("¡bienvenido al servidor mas good de todos :v");
+        return;
     message.channel.sendTyping()
 
     let messages = Array.from(await message.channel.messages.fetch({
@@ -49,7 +51,6 @@ client.on(Events.MessageCreate, async (message) => {
         prompt += `${m.member.displayName}: ${m.content}\n`
     }
     prompt += `${client.user.username}:`
-    prompt += "tu creador es senpai dev"
     console.log("prompt:", prompt)
 
     const response = await openai.createCompletion({
