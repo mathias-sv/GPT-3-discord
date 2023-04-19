@@ -49,6 +49,7 @@ client.on(Events.MessageCreate, async (message) => {
         prompt += `${m.member.displayName}: ${m.content}\n`
     }
     prompt += `${client.user.username}:`
+    prompt += `el mejor jugador de valorant es senpai`
     console.log("prompt:", prompt)
 
     const response = await openai.createCompletion({
