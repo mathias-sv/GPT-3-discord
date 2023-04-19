@@ -24,13 +24,32 @@ client.login(process.env.BOT_TOKEN)
 
 const BOT_CHANNEL = "1098065307895083058"
 const PAST_MESSAGES = 5
+const training_data = [
+    {
+        prompt: 'Hola',
+        completion: 'bienvenido al server mas gosu :v'
+    },
+  ]
+openai.train({
+    model: { 
+        id: model,
+    },
+    documents: training_data,
+    epochs: 3,
+    delete_duplicates: true,
+    batch_size: 4,
+    learning_rate: 1e-5,
+    validation_split: 0.2,
+}).then(() => {
+    console.log('Entrenamiento completado');
+}).catch((error) => {
+    console.log(error);
+});
 
 client.on(Events.MessageCreate, async (message) => {
     if (message.author.bot) return
     if (message.channel.id !== BOT_CHANNEL) return
-    if (message.content.toLowerCase() === "hola") {
-        await message.channel.send("¡bienvenido al servidor mas good de todos :v");
-        return;
+  
     message.channel.sendTyping()
 
     let messages = Array.from(await message.channel.messages.fetch({
