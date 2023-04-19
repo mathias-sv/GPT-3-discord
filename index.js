@@ -53,7 +53,6 @@ client.on(Events.MessageCreate, async (message) => {
     const trainresp = {
       {"prompt": "hola", "completion": "bienvenido al server mas gosu :v"}
     }
-      const traingpt = await openai.
     const response = await openai.createCompletion({
         prompt,
         model: "text-davinci-003",
