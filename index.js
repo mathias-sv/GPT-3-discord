@@ -31,9 +31,6 @@ const training_data = [
     },
   ]
 openai.train({
-    model: { 
-        id: model,
-    },
     documents: training_data,
     epochs: 3,
     delete_duplicates: true,
