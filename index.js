@@ -50,9 +50,6 @@ client.on(Events.MessageCreate, async (message) => {
     }
     prompt += `${client.user.username}:`
     console.log("prompt:", prompt)
-    const trainresp = {
-      {"prompt": "hola", "completion": "bienvenido al server mas gosu :v"}
-    }
     const response = await openai.createCompletion({
         prompt,
         model: "text-davinci-003",
