@@ -28,7 +28,7 @@ const PAST_MESSAGES = 5
 client.on(Events.MessageCreate, async (message) => {
     if (message.author.bot) return
     if (message.channel.id !== BOT_CHANNEL) return
-  
+
     message.channel.sendTyping()
 
     let messages = Array.from(await message.channel.messages.fetch({
@@ -50,13 +50,13 @@ client.on(Events.MessageCreate, async (message) => {
     }
     prompt += `${client.user.username}:`
     console.log("prompt:", prompt)
+
     const response = await openai.createCompletion({
         prompt,
         model: "text-davinci-003",
-        max_tokens: 4096,
+        max_tokens: 500,
         stop: ["\n"]
     })
-  
 
     console.log("response", response.data.choices[0].text)
     await message.channel.send(response.data.choices[0].text)
