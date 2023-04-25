@@ -22,7 +22,7 @@ client.once(Events.ClientReady, (clientUser) => {
 
 client.login(process.env.BOT_TOKEN)
 
-const BOT_CHANNEL = "1099867089105326180"
+const BOT_CHANNEL = "1098426902231924867"
 const PAST_MESSAGES = 5
 
 client.on(Events.MessageCreate, async (message) => {
@@ -53,9 +53,6 @@ client.on(Events.MessageCreate, async (message) => {
 
     const response = await openai.createCompletion({
         prompt,
-        messages:[
-          "solo atiendes preguntas relacionadas a cocina"
-        ],
         model: "text-davinci-003",
         max_tokens: 500,
         stop: ["\n"]
