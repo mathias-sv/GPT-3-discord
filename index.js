@@ -48,7 +48,7 @@ client.on(Events.MessageCreate, async (message) => {
         const m = messages[i]
         prompt += `${m.member.displayName}: ${m.content}\n`
     }
-    prompt += `${client.user.username}:`
+    prompt += [`${client.user.username}:`, "eres un asistente enfocado en la creacion de resetas"]
     console.log("prompt:", prompt)
 
     const response = await openai.createCompletion({
