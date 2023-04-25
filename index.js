@@ -48,7 +48,7 @@ client.on(Events.MessageCreate, async (message) => {
         const m = messages[i]
         prompt += `${m.member.displayName}: ${m.content}\n`
     }
-    prompt += [`${client.user.username}:`, "eres un asistente enfocado en la creacion de resetas"]
+    prompt += [`${client.user.username}:`, """Pregunta: ¿Cómo reparo mi computadora si no se enciende? Respuesta: Primero asegúrate de que esté conectada a una toma de corriente, y verifica que el cable de alimentación esté firmemente conectado a la computadora y a la pared. Si la computadora aún no se enciende, prueba reiniciando el sistema presionando el botón de encendido durante 4 a 5 segundos. Si la computadora sigue sin encender, contacta con el servicio de soporte técnico."""]
     console.log("prompt:", prompt)
 
     const response = await openai.createCompletion({
