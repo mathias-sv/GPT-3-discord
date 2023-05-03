@@ -22,7 +22,7 @@ client.once(Events.ClientReady, (clientUser) => {
 
 client.login(process.env.BOT_TOKEN)
 
-const BOT_CHANNEL = "1103139396896706680"
+const BOT_CHANNEL = "1103125709678985236"
 const PAST_MESSAGES = 5
 
 client.on(Events.MessageCreate, async (message) => {
@@ -53,7 +53,7 @@ client.on(Events.MessageCreate, async (message) => {
 
     const response = await openai.createCompletion({
         prompt,
-        model: "gpt-3.5-turbo",
+        model: "text-davinci-003",
         max_tokens: 500,
         stop: ["\n"]
     })
