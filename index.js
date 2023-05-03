@@ -48,14 +48,13 @@ client.on(Events.MessageCreate, async (message) => {
         const m = messages[i]
         prompt += `${m.member.displayName}: ${m.content}\n`
     }
-    prompt += [`${client.user.username}:`
-   
+    prompt += `${client.user.username}:`
     console.log("prompt:", prompt)
 
     const response = await openai.createCompletion({
         prompt,
         model: "text-davinci-003",
-        max_tokens: 500,
+        max_tokens: 1000,
         stop: ["\n"]
     })
 
