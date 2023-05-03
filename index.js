@@ -38,7 +38,7 @@ client.on(Events.MessageCreate, async (message) => {
     messages = messages.map(m=>m[1])
     messages.unshift(message)
 
-    let users = [...new Set([...messages.map(m=> m.member.displayName), client.user.username])]
+    let users = [...new Set([...messages.map(m=> m.displayName), client.user.username])]
 
     let lastUser = users.pop()
 
@@ -46,7 +46,7 @@ client.on(Events.MessageCreate, async (message) => {
 
     for (let i = messages.length - 1; i >= 0; i--) {
         const m = messages[i]
-        prompt += `${m.member.displayName}: ${m.content}\n`
+        prompt += `${m.displayName}: ${m.content}\n`
     }
     prompt += `${client.user.username}:`
     console.log("prompt:", prompt)

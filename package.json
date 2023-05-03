@@ -1,7 +1,6 @@
 {
-  "name": "chatbot-tutorial",
+  "name": "chatbot",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -13,5 +12,15 @@
     "discord.js": "^14.7.1",
     "dotenv": "^16.0.3",
     "openai": "^3.1.0"
-  }
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mathias-sv/GPT-3-discord.git"
+  },
+  "bugs": {
+    "url": "https://github.com/mathias-sv/GPT-3-discord/issues"
+  },
+  "homepage": "https://github.com/mathias-sv/GPT-3-discord#readme",
+  "description": ""
 }
